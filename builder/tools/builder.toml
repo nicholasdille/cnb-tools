@@ -3,10 +3,17 @@ description = "tools"
 [[buildpacks]]
 uri = "../../buildpacks/kubectl"
 
+[[buildpacks]]
+uri = "../../buildpacks/helm"
+
 [[order]]
 
     [[order.group]]
     id = "localhost:5000/nicholasdille/cnb-buildpack-kubectl"
+    version = "0.0.1"
+
+    [[order.group]]
+    id = "localhost:5000/nicholasdille/cnb-buildpack-helm"
     version = "0.0.1"
 
 [stack]

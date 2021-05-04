@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+if ! test -f helm.version; then
+    echo "ERROR: No helm.version found."
+    exit 1
+fi

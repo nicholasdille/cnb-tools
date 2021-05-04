@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Helm Buildpack"
+
+layersdir=$1
+
+HELM_VERSION=$(cat helm.version)
+if test -z "${HELM_VERSION}"; then
+    echo "ERROR: Missing HELM_VERSION."
+    exit 1
+fi
+
+mkdir -p "${layersdir}/usr/local/bin"
+curl --location "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" | \
+        tar -xzC "${layersdir}/usr/local/bin" --strip-components=1 linux-amd64/helm
+chmod +x "${layersdir}/usr/local/bin/helm"

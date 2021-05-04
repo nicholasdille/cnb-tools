@@ -1,0 +1,9 @@
+api = "0.5"
+
+[buildpack]
+id = "localhost:5000/nicholasdille/cnb-buildpack-helm"
+version = "0.0.1"
+name = "Helm Buildpack"
+
+[[stacks]]
+id = "io.dille.stacks.focal"

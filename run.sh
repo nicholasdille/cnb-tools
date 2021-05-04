@@ -11,6 +11,7 @@ pack config default-builder localhost:5000/nicholasdille/cnb-builder-basic:focal
 
 echo "### Building buildpacks and builder"
 pack buildpack package localhost:5000/nicholasdille/cnb-buildpack-kubectl --config packages/kubectl/package.toml --publish
+pack buildpack package localhost:5000/nicholasdille/cnb-buildpack-helm --config packages/helm/package.toml --publish
 pack builder create localhost:5000/nicholasdille/cnb-builder-tools:focal --config builder/tools/builder.toml --publish
 
 echo "### Building app"
