@@ -1,0 +1,15 @@
+description = "tools"
+
+[[buildpacks]]
+uri = "../../buildpacks/kubectl"
+
+[[order]]
+
+    [[order.group]]
+    id = "localhost:5000/nicholasdille/cnb-buildpack-kubectl"
+    version = "0.0.1"
+
+[stack]
+id = "io.dille.stacks.focal"
+run-image = "localhost:5000/nicholasdille/cnb-stack-run:focal"
+build-image = "localhost:5000/nicholasdille/cnb-stack-build:focal"

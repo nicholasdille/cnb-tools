@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Tools Buildpack"
+
+layersdir=$1
+
+KUBECTL_VERSION=$(cat kubectl.version)
+if test -z "${KUBECTL_VERSION}"; then
+    echo "ERROR: Missing KUBECTL_VERSION."
+    exit 1
+fi
+
+mkdir -p "${layersdir}/usr/local/bin"
+curl --location --output "${layersdir}/usr/local/bin/kubectl" https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+chmod +x "${layersdir}/usr/local/bin/kubectl"

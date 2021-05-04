@@ -1,0 +1,4 @@
+[stack]
+id = "io.dille.stacks.focal"
+run-image = "localhost:5000/nicholasdille/cnb-stack-run:focal"
+build-image = "localhost:5000/nicholasdille/cnb-stack-build:focal"

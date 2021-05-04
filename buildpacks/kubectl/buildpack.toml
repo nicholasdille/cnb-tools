@@ -1,0 +1,12 @@
+# Buildpack API version
+api = "0.5"
+
+# Buildpack ID and metadata
+[buildpack]
+id = "localhost:5000/nicholasdille/cnb-buildpack-kubectl"
+version = "0.0.1"
+name = "Kubectl Buildpack"
+
+# Stacks that the buildpack will work with
+[[stacks]]
+id = "io.dille.stacks.focal"
