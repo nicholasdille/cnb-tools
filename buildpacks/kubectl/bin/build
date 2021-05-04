@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-echo "---> Tools Buildpack"
+echo "---> Kubectl Buildpack"
 
 layersdir=$1
 
