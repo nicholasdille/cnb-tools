@@ -1,9 +1,13 @@
 #!/bin/bash
 set -o errexit
 
-echo "### Building stack"
+echo "### Building stack on focal"
 docker build stacks/focal --target build --tag localhost:5000/nicholasdille/cnb-stack-build:focal --push
 docker build stacks/focal --target run   --tag localhost:5000/nicholasdille/cnb-stack-run:focal --push
+
+echo "### Building stack on groovy"
+docker build stacks/groovy --target build --tag localhost:5000/nicholasdille/cnb-stack-build:groovy --push
+docker build stacks/groovy --target run   --tag localhost:5000/nicholasdille/cnb-stack-run:groovy --push
 
 echo "### Building basic builder"
 pack builder create localhost:5000/nicholasdille/cnb-builder-basic:focal --config builder/basic/builder.toml --publish
@@ -16,3 +20,6 @@ pack builder create localhost:5000/nicholasdille/cnb-builder-tools:focal --confi
 
 echo "### Building app"
 pack build localhost:5000/nicholasdille/cnb-test --builder localhost:5000/nicholasdille/cnb-builder-tools:focal --path app/test
+
+echo "### Rebase app"
+pack rebase localhost:5000/nicholasdille/cnb-test

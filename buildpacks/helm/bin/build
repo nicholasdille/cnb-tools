@@ -15,3 +15,5 @@ mkdir -p "${layersdir}/usr/local/bin"
 curl --location "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" | \
         tar -xzC "${layersdir}/usr/local/bin" --strip-components=1 linux-amd64/helm
 chmod +x "${layersdir}/usr/local/bin/helm"
+
+echo -e 'launch = true' > "${layersdir}/helm.toml"
